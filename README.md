@@ -2,7 +2,7 @@
 Source code for our journal paper [Joint Optimization of Linear and Nonlinear Models for Sequential Regression](https://www.sciencedirect.com/science/article/pii/S1051200422004195), accepted by Digital Signal Processing, Elsevier, 2022.
 
 ### Sample Usage
-(Additional comments and instructions can be found in the corresponding model code)
+(Additional comments and instructions can be found in the corresponding model code. Additionally, theoretical explanation can be found in the given paper)
 
 For SARIMAX_SGD:
 
