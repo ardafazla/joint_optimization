@@ -55,6 +55,7 @@ batch_size: int, kept at 1 for online learning
 """
 
 from models import SoftGBM
+from torch.utils.data import DataLoader
 
 training_dataset, test_dataset = [], []
 
