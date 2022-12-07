@@ -57,14 +57,14 @@ batch_size: int, kept at 1 for online learning
 from models import SoftGBM
 from torch.utils.data import DataLoader
 
-training_dataset, test_dataset = [], []
+model_dataset = []
 
 for i in range(len(y)):
-    training_dataset.append(tuple([torch.from_numpy(X[i]),torch.from_numpy(np.array(y[i]))]))
+    model_dataset.append(tuple([torch.from_numpy(X[i]),torch.from_numpy(np.array(y[i]))]))
     
-train_dataloader = DataLoader(tuple(training_dataset), batch_size=1, shuffle=False)
+model_dataloader = DataLoader(tuple(model_dataset), batch_size=1, shuffle=False)
 
 model_soft = SoftGBM(num_trees=20, tree_depth=2, input_dim=56, shrinkage_rate=0.15)
 optimizer = optim.SGD(model_soft.parameters(), lr=0.005)
-my_preds = model_soft.train_(train_dataloader, optimizer, num_epochs=1, mean=mean, std=std)
+my_preds = model_soft.train_(model_dataloader, optimizer, num_epochs=1, mean=mean, std=std)
 ```
