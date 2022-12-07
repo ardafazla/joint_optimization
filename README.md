@@ -26,7 +26,7 @@ num_epochs: int, kept at 1 for online learning
 batch_size: int, kept at 1 for online learning
 """
 
-from models.sarimax import SARIMAX_SGD
+from sarimax import SARIMAX_SGD
 
 model = SARIMAX_SGD(y, X, mean, std, "n", order=(0, 1, 3), seas_order=(3, 0, 3, 7))
 optimizer = optim.SGD(model.parameters(), lr=0.01)
@@ -54,7 +54,7 @@ num_epochs: int, kept at 1 for online learning
 batch_size: int, kept at 1 for online learning
 """
 
-from models.soft import SoftGBM
+from soft import SoftGBM
 from torch.utils.data import DataLoader
 
 model_dataset = []
@@ -92,7 +92,7 @@ batch_size: int, kept at 1 for online learning
 """
 
 from torch.utils.data import DataLoader
-from models.joint_model import JointModel
+from joint_model import JointModel
 
 model_dataset = []
 
