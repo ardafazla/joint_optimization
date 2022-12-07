@@ -103,7 +103,7 @@ model_dataloader = DataLoader(tuple(model_dataset), batch_size=1, shuffle=False)
 model = JointModel(num_trees=20, tree_depth=2, input_dim=56, shrinkage_rate=0.15, 
                    mean=mean, std=std, endog=y, exog=X, trend="n", order=(0, 1, 3), seas_order=(3, 0, 3, 7))
 
-opt1 = optim.SGD(model.Linear.parameters(), lr=0.004)
+opt1 = optim.SGD(model.Linear.parameters(), lr=0.001)
 opt2 = optim.SGD(model.trees.parameters(), lr=0.005)
 sarimax_preds, soft_preds = model.train_(train_dataloader, num_epochs=1, batch_size=1, first_endog=first_endog, optimizer1=opt1, optimizer2=opt2)
 joint_preds = sarimax_preds + soft_preds
